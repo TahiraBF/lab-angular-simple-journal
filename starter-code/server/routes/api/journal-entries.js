@@ -9,6 +9,21 @@ router.get("/api/journal-entries", (req, res, next) => {
 
 });
 
+router.post("/api/journal-entries", (req, res) => {
+    let newEntry = new Journal({
+      date: new Date(),
+      title: req.body.title,
+      content: req.body.content
+    });
+//
+    newEntry.save((err)=>{
+      if (err){
+        console.log("error saving entry");
+      }
+      return res.json({ message: 'New entry saved!' });
+    });
+});
+
 router.get("/api/journal-entries/:id", (req, res, next) => {
   let entryId = req.params.id;
   Journal.findOne({"_id": entryId},(err, jEntry) => {
@@ -17,7 +32,7 @@ router.get("/api/journal-entries/:id", (req, res, next) => {
     }
     res.json(jEntry);
   });
-
 });
+
 
 module.exports = router;

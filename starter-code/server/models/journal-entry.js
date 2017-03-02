@@ -5,7 +5,7 @@ const journalSchema = new Schema({
   date: {type: Date,
     default: new Date()},
   title: String,
-  Content: String
+  content: String
 });
 
 
