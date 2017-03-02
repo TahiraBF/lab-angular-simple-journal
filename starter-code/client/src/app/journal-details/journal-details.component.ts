@@ -10,9 +10,27 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class JournalDetailsComponent implements OnInit {
 
-  constructor() { }
+  entryId: string;
+  jEntry = {};
+
+  constructor(
+    private journalEntry : JournalEntriesService,
+    private route : ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.params
+      .subscribe((params)=> {
+        this.entryId = params['id'];
+        this.getEntryById(this.entryId);
+      })
   }
 
+  getEntryById(id){
+    this.journalEntry.getById(id)
+    .subscribe((jEntry)=> {
+      this.jEntry = jEntry;
+      console.log(jEntry);
+    })
+  }
 }
