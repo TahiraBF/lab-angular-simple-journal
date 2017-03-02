@@ -7,7 +7,7 @@ import { JournalDetailsComponent } from './journal-details/journal-details.compo
 
 
 const routes: Routes = [
-  { path: 'api/journal-entries', component: EntryListComponent },
+  { path: '', component: EntryListComponent },
   { path: 'api/journal-entries/:id',  component: JournalDetailsComponent }
 ];
 

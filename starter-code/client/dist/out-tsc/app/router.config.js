@@ -9,7 +9,7 @@ import { RouterModule } from "@angular/router";
 import { EntryListComponent } from './entry-list/entry-list.component';
 import { JournalDetailsComponent } from './journal-details/journal-details.component';
 var routes = [
-    { path: 'api/journal-entries', component: EntryListComponent },
+    { path: '', component: EntryListComponent },
     { path: 'api/journal-entries/:id', component: JournalDetailsComponent }
 ];
 var RouterConfiguration = (function () {
