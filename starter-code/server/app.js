@@ -6,9 +6,10 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
-// const journal_entries = require('./routes/api/journal-entries');
+const cors         = require('cors');
 
 mongoose.connect('mongodb://localhost/journal-development');
+
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
