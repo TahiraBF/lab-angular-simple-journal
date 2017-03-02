@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JournalEntriesService } from '../journal-entries.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-entry-list',
@@ -18,7 +21,6 @@ export class EntryListComponent implements OnInit {
         this.journalEntries = journalEntries.docs;
         console.log(this.journalEntries);
       })
-
 
   }
 
